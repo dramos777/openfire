@@ -33,7 +33,7 @@ docker volume create openfire
 docker container run --name openfire-server -d -p 5222:5222 -p 5269:5269 -p 7443:7443 -p 9090:9090 -p 9091:9091 --mount type=volume,src=openfire,dst=/opt/openfire/ dramos777/openfire:1.0
 
 ```
-No exemplo acima o container do servidor estará ativo e pronto para as configurações iniciais e conexão com o banco de dados (procedimento feito pela interface web).
+No exemplo acima o container do servidor estará ativo e pronto para as configurações iniciais e conexão com o banco de dados.
 
 ### Testado em:
 - Debian GNU/Linux 10 com Docker 20.10.9.
@@ -54,23 +54,17 @@ Os valores acima serão atribuídos por padrão no build da imagem.
 /var/log/
 
 ```
-Os diretórios acima são links simbólicos.
-
-```
-/opt/openfire/
-
-```
-O diretório acima é o raiz da aplicação.
+Os diretórios acima são links simbólicos. O diretório raiz da aplicação é /opt/openfire
 
 ### Histórico
 
-v1.0 26/10/2021, Emanuel Dramos:
+v1.0 28/10/2021, Emanuel Dramos:
 - Criação do Dockerfile
 - Criação do README.md
 - Build da imagem e push para o Dockerhub
 - Push do projeto para o github
 
-v1.0 27/10/2021, Emanuel Dramos:
+v1.0 28/10/2021, Emanuel Dramos:
 - Deploy da aplicação e conexão com o banco de dados
 
 
