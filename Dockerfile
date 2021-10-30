@@ -8,25 +8,29 @@ ENV OPENFIRE_VERSION=4_6_4 \
 ARG OPENFIRE_VERSION=4_6_4 \
     JDK_VERSION=11    
 
-RUN apk update && \
-    apk add openjdk${JDK_VERSION}
-
 RUN wget https://www.igniterealtime.org/downloadServlet?filename=openfire/openfire_${OPENFIRE_VERSION}.tar.gz -O openfire_${OPENFIRE_VERSION}.tar.gz && \
-    tar -xvf openfire_${OPENFIRE_VERSION}.tar.gz -C /opt/ && \
-    chmod +x /opt/openfire/bin/openfire && \
-    mkdir -p /var/lib/openfire/embedded-db/ && \
+    tar -xvf openfire_${OPENFIRE_VERSION}.tar.gz -C /opt && \
+    rm -rf *openfire* && \
+    mkdir -p /openfire/var/ && \
+    mkdir -p /openfire/usr/lib/jvm && \
+    mkdir -p /openfire/var/log && \
+    mv -f /opt/openfire/conf /openfire/ && \
+    mv -f /opt/openfire/lib /openfire/var/ && \
+    ln -s /openfire/conf /opt/openfire/conf && \
+    ln -s /openfire/var/lib /opt/openfire/lib && \
+    ln -s /openfire/var/log /opt/openfire/logs && \
+    ln -s /openfire/usr/lib/jvm /usr/lib/jvm && \
     ln -s /opt/openfire/bin/openfire /usr/local/bin/openfire && \
-    ln -s /opt/openfire/conf /etc/openfire && \
-    ln -s /opt/openfire/plugins /var/lib/openfire/plugins && \
-    rm -rf openfire* && \
-    rm -rf /var/cache/apk/* && \
     adduser -S openfire && \
-    chown -R openfire /opt/openfire/*
+    chown -R openfire /opt/openfire && \
+    chmod +x /opt/openfire/bin/openfire
 
-VOLUME /etc/openfire
-VOLUME /var/lib/openfire
-VOLUME /var/log
-VOLUME /opt/openfire
+RUN apk update && \
+    apk add openjdk${JDK_VERSION} && \
+    rm -rf /var/cache/apk/*
+
+
+VOLUME /openfire
 
 
 WORKDIR	/opt/openfire/
