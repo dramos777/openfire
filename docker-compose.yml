@@ -3,7 +3,7 @@ services:
   db:
     image: mariadb
     volumes:
-    - openfire-db:/var/lib/mysql
+    - db:/var/lib/mysql
     deploy:
       replicas: 1
       resources:
@@ -21,9 +21,9 @@ services:
   app:
     depends_on:
     - db
-    image: dramos777/openfire:1.0
+    image: dramos777/openfire:1.1
     volumes:
-    - openfire-arq:/opt/openfire
+    - config:/openfire
     deploy:
       replicas: 1
       resources:
@@ -43,5 +43,5 @@ services:
 networks:
   openfire:
 volumes:
-  openfire-db:
-  openfire-arq:
+  db:
+  config:
