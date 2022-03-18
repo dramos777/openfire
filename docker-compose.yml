@@ -21,7 +21,7 @@ services:
   app:
     depends_on:
     - db
-    image: dramos777/openfire:1.1
+    image: dramos777/openfire:1.2
     volumes:
     - config:/openfire
     deploy:
