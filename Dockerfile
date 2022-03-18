@@ -22,7 +22,7 @@ RUN wget https://www.igniterealtime.org/downloadServlet?filename=openfire/openfi
     ln -s /openfire/usr/lib/jvm /usr/lib/jvm && \
     ln -s /opt/openfire/bin/openfire /usr/local/bin/openfire && \
     adduser -S openfire && \
-    chown -R openfire /opt/openfire && \
+    chown -R openfire:openfire /opt/openfire && \
     chmod +x /opt/openfire/bin/openfire
 
 RUN apk update && \
