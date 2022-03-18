@@ -41,7 +41,7 @@ No exemplo acima o container do servidor estará ativo e pronto para as configur
 
 ### Variáveis
 
-- OPENFIRE_VERSION=4_6_4
+- OPENFIRE_VERSION=4_7_1
 - JDK_VERSION=11
 
 Os valores acima serão atribuídos por padrão no build da imagem.
