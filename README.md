@@ -14,15 +14,15 @@ Imagem docker criada para simplificar o deploy da aplicação openfire em ambien
 Download da imagem do Dockerhub:
 
 ```
-docker pull dramos777/openfire:1.0
+docker pull dramos777/openfire:1.2
 
 ```
 Build da imagem:
 
 ```
-git clone https://github.com/dramos777/openfire-1.0.git
-cd openfire-1.0
-docker image build -t dramos777/openfire:1.0 .
+git clone https://github.com/dramos777/openfire-1.2.git
+cd openfire-1.2
+docker image build -t dramos777/openfire:1.2 .
 
 ```
 
