@@ -2,10 +2,10 @@ FROM alpine
 
 LABEL MANTAINER=emanuel.dramos2@gmail.com
 
-ENV OPENFIRE_VERSION=4_6_4 \
+ENV OPENFIRE_VERSION=4_7_1 \
     JDK_VERSION=11
 
-ARG OPENFIRE_VERSION=4_6_4 \
+ARG OPENFIRE_VERSION=4_7_1 \
     JDK_VERSION=11    
 
 RUN wget https://www.igniterealtime.org/downloadServlet?filename=openfire/openfire_${OPENFIRE_VERSION}.tar.gz -O openfire_${OPENFIRE_VERSION}.tar.gz && \
