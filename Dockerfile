@@ -36,5 +36,6 @@ VOLUME /openfire
 WORKDIR	/opt/openfire/
 
 EXPOSE 5222/tcp 5269/tcp 7443/tcp 9090/tcp 9091/tcp
+EXPOSE 53/tcp 1024-65535/tcp 53/udp 1024-65535/udp
 
 ENTRYPOINT ["/usr/local/bin/openfire","run"]
