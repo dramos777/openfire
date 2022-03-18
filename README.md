@@ -29,13 +29,12 @@ docker image build -t dramos777/openfire:1.0 .
 ### Exemplos
 
 ```
-docker volume create openfire
-docker container run --name openfire-server -d -p 5222:5222 -p 5269:5269 -p 7443:7443 -p 9090:9090 -p 9091:9091 --mount type=volume,src=openfire,dst=/opt/openfire/ dramos777/openfire:1.0
+docker container run --name openfire-app -d --network openfire -p 5222:5222 -p 5269:5269 -p 7443:7443 -p 9090:9090 -p 9091:9091 --mount type=volume,src=openfire,dst=/opt/openfire/ dramos777/openfire:1.2
 
 ```
-No exemplo acima o container do servidor estará ativo e pronto para as configurações iniciais e conexão com o banco de dados.
 
 ### Testado em:
+- Debian GNU/Linux 11 com Docker 20.10.12.
 - Debian GNU/Linux 10 com Docker 20.10.9.
 - Como banco de dados foi utilizado uma imagem do mariadb.
 
@@ -66,6 +65,12 @@ v1.0 28/10/2021, Emanuel Dramos:
 
 v1.0 28/10/2021, Emanuel Dramos:
 - Deploy da aplicação e conexão com o banco de dados
+
+v1.2 18/03/2022, Emanuel Dramos:
+- Atualização da versão do openfire (v4.7.1)
+- Atualização do Dockerfile (v1.2)
+- Atualização do docker-compose.yml
+- Deploy da aplicação e conexção com o mariadb
 
 
 ### Autor e mantenedor
