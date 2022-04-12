@@ -26,6 +26,7 @@ RUN wget https://www.igniterealtime.org/downloadServlet?filename=openfire/openfi
     chmod +x /opt/openfire/bin/openfire
 
 RUN apk update && \
+    apk add php-ldap && \
     apk add openjdk${JDK_VERSION} && \
     rm -rf /var/cache/apk/*
 
